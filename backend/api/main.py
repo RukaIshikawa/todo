@@ -3,11 +3,21 @@
 from fastapi import FastAPI, Request, status, Query, Header, Response, HTTPException
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from .routers import task, done, user
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[""],  # 開発中だけ
+    allow_credentials=True,
+    allow_methods=[""],
+    allow_headers=["*"],
+)
+
 app.include_router(task.router)
 app.include_router(done.router)
 app.include_router(user.router)
