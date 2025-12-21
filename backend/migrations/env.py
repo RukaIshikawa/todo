@@ -16,10 +16,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # 構造に合わせたインポート
 from api.db import Base 
 import api.models.task as task_model # モデルを読み込ませる
+import api.models.user as user_model
 
 target_metadata = Base.metadata
-
-
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

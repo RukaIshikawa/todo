@@ -5,11 +5,12 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from .routers import task, done
+from .routers import task, done, user
 
 app = FastAPI()
 app.include_router(task.router)
 app.include_router(done.router)
+app.include_router(user.router)
 
 
 @app.exception_handler(RequestValidationError)
